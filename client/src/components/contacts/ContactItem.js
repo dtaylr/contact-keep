@@ -14,7 +14,7 @@ const ContactItem = ({ contact }) => {
   };
 
   return (
-    <div className='card bg-light'>
+    <div className='card bg-light' data-cy='contact-item'>
       <h3 className='text-primary text-left'>
         {name}{' '}
         <span
@@ -42,11 +42,16 @@ const ContactItem = ({ contact }) => {
       <p>
         <button
           className='btn btn-dark btn-sm'
+          data-cy={`edit-contact-${_id}`}
           onClick={() => setCurrent(contact)}
         >
           Edit
         </button>
-        <button className='btn btn-danger btn-sm' onClick={onDelete}>
+        <button
+          className='btn btn-danger btn-sm'
+          data-cy={`delete-contact-${_id}`}
+          onClick={onDelete}
+        >
           Delete
         </button>
       </p>

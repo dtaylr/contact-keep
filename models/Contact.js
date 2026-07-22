@@ -7,17 +7,22 @@ const ContactSchema = mongoose.Schema({
   },
   name: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    lowercase: true,
+    trim: true
   },
   phone: {
-    type: String
+    type: String,
+    trim: true
   },
   type: {
     type: String,
+    enum: ['personal', 'professional'],
     default: 'personal'
   },
   date: {

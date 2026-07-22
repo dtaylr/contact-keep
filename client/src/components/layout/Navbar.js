@@ -25,7 +25,7 @@ const Navbar = ({ title, icon }) => {
     <Fragment>
       <li>Hello {user && user.name}</li>
       <li>
-        <a onClick={onLogout} href='#!'>
+        <a onClick={onLogout} href='#!' data-cy='logout-link'>
           <i className='fas fa-sign-out-alt' />{' '}
           <span className='hide-sm'>Logout</span>
         </a>
@@ -36,10 +36,10 @@ const Navbar = ({ title, icon }) => {
   const guestLinks = (
     <Fragment>
       <li>
-        <Link to='/register'>Register</Link>
+        <Link to='/register' data-cy='register-link'>Register</Link>
       </li>
       <li>
-        <Link to='/login'>Login</Link>
+        <Link to='/login' data-cy='login-link'>Login</Link>
       </li>
     </Fragment>
   );

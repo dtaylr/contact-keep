@@ -57,6 +57,7 @@ const Register = props => {
           <label htmlFor='name'>Name</label>
           <input
             id='name'
+            data-cy='register-name'
             type='text'
             name='name'
             value={name}
@@ -68,6 +69,7 @@ const Register = props => {
           <label htmlFor='email'>Email Address</label>
           <input
             id='email'
+            data-cy='register-email'
             type='email'
             name='email'
             value={email}
@@ -79,6 +81,7 @@ const Register = props => {
           <label htmlFor='password'>Password</label>
           <input
             id='password'
+            data-cy='register-password'
             type='password'
             name='password'
             value={password}
@@ -91,6 +94,7 @@ const Register = props => {
           <label htmlFor='password2'>Confirm Password</label>
           <input
             id='password2'
+            data-cy='register-confirm-password'
             type='password'
             name='password2'
             value={password2}
@@ -100,6 +104,7 @@ const Register = props => {
           />
         </div>
         <input
+          data-cy='register-submit'
           type='submit'
           value='Register'
           className='btn btn-primary btn-block'

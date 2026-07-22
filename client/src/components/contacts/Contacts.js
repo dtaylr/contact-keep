@@ -21,7 +21,7 @@ const Contacts = () => {
   return (
     <Fragment>
       {contacts !== null && !loading ? (
-        <TransitionGroup>
+        <TransitionGroup data-cy='contact-list'>
           {filtered !== null
             ? filtered.map(contact => (
                 <CSSTransition

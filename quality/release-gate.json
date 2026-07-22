@@ -1,0 +1,37 @@
+{
+  "name": "contact-keep-release-gate",
+  "requiredChecks": [
+    {
+      "name": "api-tests",
+      "command": "npm test",
+      "evidence": "Jest/Supertest API suite passes"
+    },
+    {
+      "name": "client-build",
+      "command": "npm run build --prefix client",
+      "evidence": "Vite production build completes"
+    },
+    {
+      "name": "root-production-audit",
+      "command": "npm audit --omit=dev",
+      "evidence": "Root production dependency audit is clean"
+    },
+    {
+      "name": "client-production-audit",
+      "command": "npm audit --prefix client --omit=dev",
+      "evidence": "Client production dependency audit is clean"
+    },
+    {
+      "name": "cypress-e2e",
+      "command": "npm run test:e2e:ci",
+      "evidence": "Critical browser flows pass"
+    }
+  ],
+  "humanSignoffRequired": true,
+  "releaseBlockers": [
+    "failing required check",
+    "missing auth or ownership coverage",
+    "unreviewed generated tests",
+    "secrets or private data in artifacts"
+  ]
+}

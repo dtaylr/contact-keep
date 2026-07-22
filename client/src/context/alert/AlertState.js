@@ -1,8 +1,19 @@
 import React, { useReducer } from 'react';
-import uuid from 'uuid';
 import AlertContext from './alertContext';
 import alertReducer from './alertReducer';
 import { SET_ALERT, REMOVE_ALERT } from '../types';
+
+const createAlertId = () => {
+  if (
+    typeof window !== 'undefined' &&
+    window.crypto &&
+    window.crypto.randomUUID
+  ) {
+    return window.crypto.randomUUID();
+  }
+
+  return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+};
 
 const AlertState = props => {
   const initialState = [];
@@ -11,7 +22,7 @@ const AlertState = props => {
 
   // Set Alert
   const setAlert = (msg, type, timeout = 5000) => {
-    const id = uuid.v4();
+    const id = createAlertId();
     dispatch({
       type: SET_ALERT,
       payload: { msg, type, id }

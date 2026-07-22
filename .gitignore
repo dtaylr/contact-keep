@@ -1,15 +1,41 @@
 node_modules/
-/config/production.json
-/config/default.json
+client/node_modules/
 
-/client/build
+# Runtime config and secrets
+.env
+.env.*
+!.env.example
+config/default.json
+config/production.json
+config/*.local.json
 
-.DS_Store
-/client/.env.local
-/client/.env.development.local
-/client/.env.test.local
-/client/.env.production.local
+# Build and coverage output
+client/build/
+client/dist/
+coverage/
+client/coverage/
+.nyc_output/
 
+# Cypress artifacts
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+client/cypress/screenshots/
+client/cypress/videos/
+client/cypress/downloads/
+
+# Logs and local diagnostics
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+yarn.lock
+client/yarn.lock
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp

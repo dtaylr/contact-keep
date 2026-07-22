@@ -9,7 +9,7 @@ import {
   CLEAR_ERRORS
 } from '../types';
 
-export default (state, action) => {
+const authReducer = (state, action) => {
   switch (action.type) {
     case USER_LOADED:
       return {
@@ -20,7 +20,6 @@ export default (state, action) => {
       };
     case REGISTER_SUCCESS:
     case LOGIN_SUCCESS:
-      localStorage.setItem('token', action.payload.token);
       return {
         ...state,
         ...action.payload,
@@ -31,7 +30,6 @@ export default (state, action) => {
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
-      localStorage.removeItem('token');
       return {
         ...state,
         token: null,
@@ -49,3 +47,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default authReducer;
