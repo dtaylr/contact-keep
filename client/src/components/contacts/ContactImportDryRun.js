@@ -77,8 +77,13 @@ const ContactImportDryRun = () => {
   };
 
   return (
-    <section className='import-panel my-2'>
-      <h2 className='text-primary'>Import Dry Run</h2>
+    <section className='panel import-panel'>
+      <div className='panel-heading'>
+        <div>
+          <p className='eyebrow'>Bulk validation</p>
+          <h2>Import Dry Run</h2>
+        </div>
+      </div>
       <form onSubmit={onSubmit}>
         <textarea
           data-cy='import-payload'

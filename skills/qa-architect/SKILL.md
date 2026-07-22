@@ -5,7 +5,7 @@ description: >
   Invoke on every PR, commit review, or pre-release check. Use when changes
   touch auth, contact ownership, validation, analytics, API contracts,
   persistence, routing, or user-facing conditional behavior.
-allowed-tools: Bash(npm test*), Bash(npx cypress*), Bash(npm run build*), Read
+allowed-tools: Bash(npm run cypress*), Bash(npx cypress*), Bash(npm run build*), Read
 ---
 
 # QA Automation Architect

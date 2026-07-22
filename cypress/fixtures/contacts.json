@@ -1,0 +1,47 @@
+{
+  "initial": [
+    {
+      "_id": "contact-1",
+      "name": "Grace Hopper",
+      "email": "grace@example.com",
+      "phone": "555-0101",
+      "type": "professional"
+    },
+    {
+      "_id": "contact-3",
+      "name": "Dorothy Vaughan",
+      "email": "dorothy@example.com",
+      "phone": "555-0110",
+      "type": "personal"
+    }
+  ],
+  "newProfessional": {
+    "name": "Katherine Johnson",
+    "email": "katherine@example.com",
+    "phone": "555-0202",
+    "type": "professional"
+  },
+  "failedCreate": {
+    "name": "Failed Contact",
+    "email": "failed@example.com",
+    "phone": "",
+    "type": "personal"
+  },
+  "importPayload": [
+    {
+      "name": "Valid Import",
+      "email": "valid@example.com",
+      "phone": "555-0200",
+      "type": "professional"
+    },
+    {
+      "email": "missing-name@example.com",
+      "type": "personal"
+    },
+    {
+      "name": "Existing Duplicate",
+      "email": "grace@example.com",
+      "type": "professional"
+    }
+  ]
+}

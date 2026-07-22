@@ -12,34 +12,37 @@ const ContactItem = ({ contact }) => {
     deleteContact(_id);
     clearCurrent();
   };
+  const formattedType = type.charAt(0).toUpperCase() + type.slice(1);
 
   return (
-    <div className='card bg-light' data-cy='contact-item'>
-      <h3 className='text-primary text-left'>
-        {name}{' '}
-        <span
-          style={{ float: 'right' }}
-          className={
-            'badge ' +
-            (type === 'professional' ? 'badge-success' : 'badge-primary')
-          }
-        >
-          {type.charAt(0).toUpperCase() + type.slice(1)}
-        </span>
-      </h3>
-      <ul className='list'>
+    <article className='contact-card' data-cy='contact-item'>
+      <div className='contact-card-header'>
+        <div>
+          <h3 data-cy={`contact-name-${_id}`}>{name}</h3>
+          <span
+            data-cy={`contact-type-${_id}`}
+            className={
+              'badge ' +
+              (type === 'professional' ? 'badge-success' : 'badge-primary')
+            }
+          >
+            {formattedType}
+          </span>
+        </div>
+      </div>
+      <ul className='contact-meta'>
         {email && (
-          <li>
-            <i className='fas fa-envelope-open' /> {email}
+          <li data-cy={`contact-email-${_id}`}>
+            <i className='fas fa-envelope-open' /> <span>{email}</span>
           </li>
         )}
         {phone && (
-          <li>
-            <i className='fas fa-phone' /> {phone}
+          <li data-cy={`contact-phone-${_id}`}>
+            <i className='fas fa-phone' /> <span>{phone}</span>
           </li>
         )}
       </ul>
-      <p>
+      <div className='contact-actions'>
         <button
           className='btn btn-dark btn-sm'
           data-cy={`edit-contact-${_id}`}
@@ -54,8 +57,8 @@ const ContactItem = ({ contact }) => {
         >
           Delete
         </button>
-      </p>
-    </div>
+      </div>
+    </article>
   );
 };
 

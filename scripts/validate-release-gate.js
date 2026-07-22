@@ -5,11 +5,14 @@ const gatePath = path.join(__dirname, '..', 'quality', 'release-gate.json');
 const gate = JSON.parse(fs.readFileSync(gatePath, 'utf8'));
 
 const requiredCommands = new Set([
-  'npm test',
+  'npm run structure:check',
+  'npm run cypress',
   'npm run build --prefix client',
   'npm audit --omit=dev',
   'npm audit --prefix client --omit=dev',
-  'npm run test:e2e:ci'
+  'npm run cypress:e2e:ci',
+  'npm run cypress:e2e:ci:chrome:critical',
+  'npm run cypress:e2e:ci:webkit:critical'
 ]);
 
 const fail = message => {
@@ -40,8 +43,8 @@ requiredCommands.forEach(command => {
   }
 });
 
-if (gate.humanSignoffRequired !== true) {
-  fail('humanSignoffRequired must be true');
+if (gate.signoffRequired !== true) {
+  fail('signoffRequired must be true');
 }
 
 if (!Array.isArray(gate.releaseBlockers) || gate.releaseBlockers.length === 0) {
