@@ -59,3 +59,51 @@ jobs:
             cypress/screenshots
             cypress/videos
           if-no-files-found: ignore
+
+  cross-browser-critical:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser:
+          - chrome
+          - webkit
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            client/package-lock.json
+
+      - name: Install API dependencies
+        run: npm ci
+
+      - name: Install client dependencies
+        run: npm ci --prefix client
+
+      - name: Install Cypress binary
+        run: npm run cypress:install
+
+      - name: Install WebKit dependencies
+        if: matrix.browser == 'webkit'
+        run: npx playwright install --with-deps webkit
+
+      - name: Run Cypress critical E2E in ${{ matrix.browser }}
+        run: npm run test:e2e:ci:${{ matrix.browser }}:critical
+
+      - name: Upload Cypress artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-${{ matrix.browser }}-critical-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+          if-no-files-found: ignore

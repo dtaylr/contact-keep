@@ -46,69 +46,82 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2 className='text-primary'>
-        {current ? 'Edit Contact' : 'Add Contact'}
-      </h2>
-      <input
-        data-cy='contact-name'
-        type='text'
-        placeholder='Name'
-        name='name'
-        value={name}
-        onChange={onChange}
-      />
-      <input
-        data-cy='contact-email'
-        type='email'
-        placeholder='Email'
-        name='email'
-        value={email}
-        onChange={onChange}
-      />
-      <input
-        data-cy='contact-phone'
-        type='text'
-        placeholder='Phone'
-        name='phone'
-        value={phone}
-        onChange={onChange}
-      />
-      <h5>Contact Type</h5>
-      <input
-        data-cy='contact-type-personal'
-        type='radio'
-        name='type'
-        value='personal'
-        checked={type === 'personal'}
-        onChange={onChange}
-      />{' '}
-      Personal{' '}
-      <input
-        data-cy='contact-type-professional'
-        type='radio'
-        name='type'
-        value='professional'
-        checked={type === 'professional'}
-        onChange={onChange}
-      />{' '}
-      Professional
-      <div>
-        <input
-          data-cy='contact-submit'
-          type='submit'
-          value={current ? 'Update Contact' : 'Add Contact'}
-          className='btn btn-primary btn-block'
-        />
-      </div>
-      {current && (
+    <section className='panel'>
+      <div className='panel-heading'>
         <div>
-          <button className='btn btn-light btn-block' onClick={clearAll}>
-            Clear
-          </button>
+          <p className='eyebrow'>Contact record</p>
+          <h2>{current ? 'Edit Contact' : 'Add Contact'}</h2>
         </div>
-      )}
-    </form>
+      </div>
+      <form onSubmit={onSubmit} className='contact-form'>
+        <input
+          data-cy='contact-name'
+          type='text'
+          placeholder='Name'
+          name='name'
+          value={name}
+          onChange={onChange}
+        />
+        <input
+          data-cy='contact-email'
+          type='email'
+          placeholder='Email'
+          name='email'
+          value={email}
+          onChange={onChange}
+        />
+        <input
+          data-cy='contact-phone'
+          type='text'
+          placeholder='Phone'
+          name='phone'
+          value={phone}
+          onChange={onChange}
+        />
+        <div className='type-selector' data-cy='contact-type-selector'>
+          <label>
+            <input
+              data-cy='contact-type-personal'
+              type='radio'
+              name='type'
+              value='personal'
+              checked={type === 'personal'}
+              onChange={onChange}
+            />
+            Personal
+          </label>
+          <label>
+            <input
+              data-cy='contact-type-professional'
+              type='radio'
+              name='type'
+              value='professional'
+              checked={type === 'professional'}
+              onChange={onChange}
+            />
+            Professional
+          </label>
+        </div>
+        <div className='form-actions'>
+          <input
+            data-cy='contact-submit'
+            type='submit'
+            value={current ? 'Update Contact' : 'Add Contact'}
+            className='btn btn-primary btn-block'
+          />
+          {current && (
+            <button
+              className='btn btn-light btn-block'
+              data-cy='contact-clear'
+              onClick={clearAll}
+              type='button'
+            >
+              Clear
+            </button>
+          )}
+        </div>
+      </form>
+    </section>
   );
 };
 

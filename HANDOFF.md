@@ -11,6 +11,9 @@
 - Cypress blocker resolved: local Electron binary runs with `ELECTRON_RUN_AS_NODE` unset, and `npm run test:e2e:ci` passes 10/10 against the dev server.
 - CRA dev tooling removed: client now uses Vite, React 18 rendering, and `client/dist` production assets.
 - React 18 auth sequencing fixed by persisting the token and axios auth header before loading the user.
+- Cypress architecture expanded: fixtures, API mocks, dedicated support hooks, selector-only page object models, reusable Cypress commands, user-journey specs, compartmentalized flow specs, device viewport contexts, test tags, WebKit/Safari-engine scripts, and architecture notes in `docs/cypress-architecture.md`.
+- Latest verification: `npm run release:gate` passes with Chrome and WebKit critical checks in the gate, and Cypress config loads with Node. Long E2E/API reruns were intentionally skipped in the latest pass per human direction. Previous E2E critical evidence: `npm run test:e2e:ci:critical` passed 32/32 before the WebKit/script cleanup.
+- Repo cleanup removed ignored generated artifacts: `client/build`, `client/dist`, and Cypress run artifacts.
 
 ## In Flight
 
@@ -20,5 +23,5 @@
 
 ## Next Up
 
-1. Stage Phase 4 refinements after human approval.
-2. Continue with any remaining monitoring/alerting refinements.
+1. Stage current Cypress/UI refinements after human approval.
+2. Any remaining monitoring/alerting refinements.

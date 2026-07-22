@@ -25,9 +25,19 @@
       "name": "cypress-e2e",
       "command": "npm run test:e2e:ci",
       "evidence": "Critical browser flows pass"
+    },
+    {
+      "name": "cypress-chrome-critical-e2e",
+      "command": "npm run test:e2e:ci:chrome:critical",
+      "evidence": "Critical browser flows pass in Chrome"
+    },
+    {
+      "name": "cypress-webkit-critical-e2e",
+      "command": "npm run test:e2e:ci:webkit:critical",
+      "evidence": "Critical browser flows pass in WebKit for Safari coverage"
     }
   ],
-  "humanSignoffRequired": true,
+  "signoffRequired": true,
   "releaseBlockers": [
     "failing required check",
     "missing auth or ownership coverage",

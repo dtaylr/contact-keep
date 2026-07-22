@@ -31,7 +31,7 @@ const ContactFilter = () => {
   };
 
   return (
-    <form>
+    <form className='filter-form'>
       <input
         ref={text}
         data-cy='contact-filter'

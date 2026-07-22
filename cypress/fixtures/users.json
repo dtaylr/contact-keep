@@ -1,0 +1,13 @@
+{
+  "primary": {
+    "_id": "user-1",
+    "name": "Ada QA",
+    "email": "ada.qa@example.com",
+    "password": "password123"
+  },
+  "newUser": {
+    "name": "Lin Tester",
+    "email": "lin.tester@example.com",
+    "password": "password123"
+  }
+}

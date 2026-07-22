@@ -1,0 +1,58 @@
+{
+  "mixed": {
+    "validRows": [
+      {
+        "rowNumber": 1,
+        "row": {
+          "name": "Valid Import",
+          "email": "valid@example.com",
+          "phone": "555-0200",
+          "type": "professional"
+        }
+      }
+    ],
+    "invalidRows": [
+      {
+        "rowNumber": 2,
+        "row": {
+          "name": "",
+          "email": "missing-name@example.com",
+          "phone": "",
+          "type": "personal"
+        },
+        "errors": ["Missing required field: name"]
+      },
+      {
+        "rowNumber": 3,
+        "row": {
+          "name": "Existing Duplicate",
+          "email": "grace@example.com",
+          "phone": "",
+          "type": "professional"
+        },
+        "errors": ["Duplicate email already exists"]
+      }
+    ],
+    "duplicates": [
+      {
+        "rowNumber": 3,
+        "email": "grace@example.com",
+        "source": "existing-contact"
+      }
+    ],
+    "missingRequiredFields": [
+      {
+        "rowNumber": 2,
+        "fields": ["name"]
+      }
+    ],
+    "summary": {
+      "totalRows": 3,
+      "validRows": 1,
+      "invalidRows": 2,
+      "duplicateRows": 1,
+      "missingRequiredRows": 1,
+      "uniqueDuplicateEmails": 1
+    }
+  }
+}
