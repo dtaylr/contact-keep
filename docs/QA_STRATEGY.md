@@ -30,9 +30,16 @@
 
 ## Current Commands
 
-- `npm test`
+- `npm run cypress`
 - `npm run build --prefix client`
-- `npm run test:e2e:ci`
+- `npm run cypress:e2e:ci`
+- `npm run cypress:e2e:ci:smoke`
+- `npm run cypress:e2e:ci:auth`
+- `npm run cypress:e2e:ci:contacts`
+- `npm run cypress:e2e:ci:mobile`
+- `npm run cypress:e2e:ci:chrome`
+- `npm run cypress:e2e:ci:webkit`
+- `npm run structure:check`
 - `npm run release:gate`
 - `npm audit`
 - `npm audit --prefix client --omit=dev`

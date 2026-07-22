@@ -54,12 +54,20 @@ with groups such as `@critical`, `@smoke`, `@auth`, `@contacts`, `@import`,
 
 Useful commands:
 
-- `npm run test:e2e:ci`: Electron full suite.
-- `npm run test:e2e:ci:critical`: Electron critical tagged tests.
-- `npm run test:e2e:ci:chrome:critical`: Chrome critical tagged tests.
-- `npm run test:e2e:ci:firefox:critical`: Firefox critical tagged tests.
-- `npm run test:e2e:ci:edge:critical`: Edge critical tagged tests.
-- `npm run test:e2e:ci:webkit:critical`: WebKit critical tagged tests.
+- `npm run cypress:e2e:ci`: Electron full suite.
+- `npm run cypress:e2e:ci:critical`: Electron critical tagged tests.
+- `npm run cypress:e2e:ci:chrome:critical`: Chrome critical tagged tests.
+- `npm run cypress:e2e:ci:chrome:smoke`: Chrome smoke tagged tests.
+- `npm run cypress:e2e:ci:firefox:critical`: Firefox critical tagged tests.
+- `npm run cypress:e2e:ci:edge:critical`: Edge critical tagged tests.
+- `npm run cypress:e2e:ci:webkit:critical`: WebKit critical tagged tests.
+- `npm run cypress:e2e:ci:webkit:smoke`: WebKit smoke tagged tests.
+- `npm run cypress:e2e:ci:auth`: Auth tagged tests.
+- `npm run cypress:e2e:ci:contacts`: Contacts tagged tests.
+- `npm run cypress:e2e:ci:import`: Import tagged tests.
+- `npm run cypress:e2e:ci:analytics`: Analytics tagged tests.
+- `npm run cypress:e2e:ci:desktop`: Desktop viewport tagged tests.
+- `npm run cypress:e2e:ci:mobile`: Mobile viewport tagged tests.
 
 Additional browsers must be installed on the machine or CI image. Cypress WebKit
 support is experimental and uses `playwright-webkit`; this gives Safari-engine

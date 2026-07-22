@@ -2,8 +2,13 @@
   "name": "contact-keep-release-gate",
   "requiredChecks": [
     {
+      "name": "repo-structure",
+      "command": "npm run structure:check",
+      "evidence": "Required human and agent-facing repo structure is present"
+    },
+    {
       "name": "api-tests",
-      "command": "npm test",
+      "command": "npm run cypress",
       "evidence": "Jest/Supertest API suite passes"
     },
     {
@@ -23,17 +28,17 @@
     },
     {
       "name": "cypress-e2e",
-      "command": "npm run test:e2e:ci",
+      "command": "npm run cypress:e2e:ci",
       "evidence": "Critical browser flows pass"
     },
     {
       "name": "cypress-chrome-critical-e2e",
-      "command": "npm run test:e2e:ci:chrome:critical",
+      "command": "npm run cypress:e2e:ci:chrome:critical",
       "evidence": "Critical browser flows pass in Chrome"
     },
     {
       "name": "cypress-webkit-critical-e2e",
-      "command": "npm run test:e2e:ci:webkit:critical",
+      "command": "npm run cypress:e2e:ci:webkit:critical",
       "evidence": "Critical browser flows pass in WebKit for Safari coverage"
     }
   ],

@@ -1,0 +1,9 @@
+# Replace the placeholder owner with the GitHub user or team responsible for this repo.
+* @contact-keep-maintainers
+
+# Security-sensitive paths should get explicit review.
+/routes/auth.js @contact-keep-maintainers
+/routes/users.js @contact-keep-maintainers
+/middleware/auth.js @contact-keep-maintainers
+/models/User.js @contact-keep-maintainers
+/.env.example @contact-keep-maintainers

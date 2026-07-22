@@ -38,8 +38,11 @@ jobs:
       - name: Validate release gate
         run: npm run release:gate
 
+      - name: Validate repo structure
+        run: npm run structure:check
+
       - name: Run API tests
-        run: npm test
+        run: npm run cypress
 
       - name: Build client
         run: npm run build --prefix client
@@ -48,7 +51,7 @@ jobs:
         run: npm run cypress:install
 
       - name: Run Cypress E2E
-        run: npm run test:e2e:ci
+        run: npm run cypress:e2e:ci
 
       - name: Upload Cypress artifacts
         if: failure()
@@ -96,7 +99,7 @@ jobs:
         run: npx playwright install --with-deps webkit
 
       - name: Run Cypress critical E2E in ${{ matrix.browser }}
-        run: npm run test:e2e:ci:${{ matrix.browser }}:critical
+        run: npm run cypress:e2e:ci:${{ matrix.browser }}:critical
 
       - name: Upload Cypress artifacts
         if: failure()

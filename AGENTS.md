@@ -3,6 +3,7 @@
 ## Source Of Truth
 
 - Read `HANDOFF.md`, `SPEC.md`, and `DECISIONS.md` before changing code.
+- For agent-facing routing and project context, read `agents/AGENTS.md`.
 - Keep changes scoped to the active task.
 - Use `PARKING_LOT.md` for good ideas outside current scope.
 
@@ -26,3 +27,8 @@
 - `scout`: read-only repo discovery and triage.
 - `builder`: implements one scoped task.
 - `verifier`: independently reviews tests, coverage, and release risk.
+
+## Structure Checks
+
+- Run `npm run structure:check` after changing repo layout, agent docs, CI, or release-gate wiring.
+- Root `AGENTS.md` stays in place for tool compatibility; detailed agent context lives under `agents/`.

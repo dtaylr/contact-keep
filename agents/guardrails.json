@@ -1,0 +1,22 @@
+{
+  "requireHumanSignoff": [
+    ".env*",
+    "config/default.json",
+    "routes/auth.js",
+    "routes/users.js",
+    "middleware/auth.js",
+    "models/User.js",
+    "cypress/",
+    "agents/"
+  ],
+  "requirePlanFor": [
+    "routes/",
+    "middleware/",
+    "models/",
+    "services/",
+    "client/src/",
+    "scripts/",
+    "cypress/",
+    ".github/workflows/"
+  ]
+}
