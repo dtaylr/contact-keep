@@ -51,6 +51,7 @@ const ContactForm = () => {
         {current ? 'Edit Contact' : 'Add Contact'}
       </h2>
       <input
+        data-cy='contact-name'
         type='text'
         placeholder='Name'
         name='name'
@@ -58,6 +59,7 @@ const ContactForm = () => {
         onChange={onChange}
       />
       <input
+        data-cy='contact-email'
         type='email'
         placeholder='Email'
         name='email'
@@ -65,6 +67,7 @@ const ContactForm = () => {
         onChange={onChange}
       />
       <input
+        data-cy='contact-phone'
         type='text'
         placeholder='Phone'
         name='phone'
@@ -73,6 +76,7 @@ const ContactForm = () => {
       />
       <h5>Contact Type</h5>
       <input
+        data-cy='contact-type-personal'
         type='radio'
         name='type'
         value='personal'
@@ -81,6 +85,7 @@ const ContactForm = () => {
       />{' '}
       Personal{' '}
       <input
+        data-cy='contact-type-professional'
         type='radio'
         name='type'
         value='professional'
@@ -90,6 +95,7 @@ const ContactForm = () => {
       Professional
       <div>
         <input
+          data-cy='contact-submit'
           type='submit'
           value={current ? 'Update Contact' : 'Add Contact'}
           className='btn btn-primary btn-block'

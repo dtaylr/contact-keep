@@ -343,6 +343,36 @@ h3 {
   text-align: center;
 }
 
+.import-panel {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+.import-panel textarea {
+  font-family: monospace;
+  min-height: 14rem;
+}
+
+.import-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.import-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.import-summary span {
+  background: var(--light-color);
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  text-align: center;
+}
+
 table th,
 table td {
   padding: 1rem;
@@ -410,6 +440,10 @@ table th {
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
+  }
+
+  .import-summary {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* Text Styles */

@@ -2,6 +2,7 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
+import { trackEvent } from '../../utils/analytics';
 import {
   GET_CONTACTS,
   ADD_CONTACT,
@@ -25,6 +26,14 @@ const ContactState = props => {
 
   const [state, dispatch] = useReducer(contactReducer, initialState);
 
+  const getErrorMessage = err =>
+    err.response && err.response.data
+      ? err.response.data.msg || 'Request failed'
+      : 'Request failed';
+
+  const getChangedFields = contact =>
+    ['name', 'email', 'phone', 'type'].filter(field => contact[field]);
+
   // Get Contacts
   const getContacts = async () => {
     try {
@@ -37,7 +46,7 @@ const ContactState = props => {
     } catch (err) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg
+        payload: getErrorMessage(err)
       });
     }
   };
@@ -57,10 +66,14 @@ const ContactState = props => {
         type: ADD_CONTACT,
         payload: res.data
       });
+      trackEvent('contact_created', {
+        contactId: res.data._id,
+        type: res.data.type
+      });
     } catch (err) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg
+        payload: getErrorMessage(err)
       });
     }
   };
@@ -74,10 +87,11 @@ const ContactState = props => {
         type: DELETE_CONTACT,
         payload: id
       });
+      trackEvent('contact_deleted', { contactId: id });
     } catch (err) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg
+        payload: getErrorMessage(err)
       });
     }
   };
@@ -101,10 +115,14 @@ const ContactState = props => {
         type: UPDATE_CONTACT,
         payload: res.data
       });
+      trackEvent('contact_updated', {
+        contactId: res.data._id,
+        changedFields: getChangedFields(contact)
+      });
     } catch (err) {
       dispatch({
         type: CONTACT_ERROR,
-        payload: err.response.msg
+        payload: getErrorMessage(err)
       });
     }
   };

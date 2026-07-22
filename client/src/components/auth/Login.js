@@ -52,6 +52,7 @@ const Login = props => {
           <label htmlFor='email'>Email Address</label>
           <input
             id='email'
+            data-cy='login-email'
             type='email'
             name='email'
             value={email}
@@ -63,6 +64,7 @@ const Login = props => {
           <label htmlFor='password'>Password</label>
           <input
             id='password'
+            data-cy='login-password'
             type='password'
             name='password'
             value={password}
@@ -71,6 +73,7 @@ const Login = props => {
           />
         </div>
         <input
+          data-cy='login-submit'
           type='submit'
           value='Login'
           className='btn btn-primary btn-block'
